@@ -1,4 +1,3 @@
-from rest_framework.renderers import JSONRenderer
 from rest_framework.viewsets import ModelViewSet
 
 from todo_app.models import Project, TODOItem
