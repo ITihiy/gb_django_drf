@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'drf_users',
+    'todo_app',
 ]
 
 MIDDLEWARE = [
