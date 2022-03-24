@@ -12,7 +12,7 @@ class Project(models.Model):
 class TODOItem(models.Model):
     todo_text = models.TextField()
     is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(DRFUser, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)

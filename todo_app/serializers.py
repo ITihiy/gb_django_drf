@@ -14,8 +14,8 @@ class ProjectModelSerializer(ModelSerializer):
 
 class TODOItemModelSerializer(ModelSerializer):
     project = ProjectModelSerializer()
-    users = DRFUserModelSerializer()
+    author = DRFUserModelSerializer()
 
     class Meta:
         model = TODOItem
-        fields = ['todo_text', 'is_active', 'project', 'author', 'users']
+        fields = ['todo_text', 'project', 'author', 'created_at', 'updated_at']
