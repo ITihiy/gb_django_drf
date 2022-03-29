@@ -6,6 +6,7 @@ const TODOItem = ({drf_todo}) => {
       <td>{drf_todo.project.name}</td>
       <td>{drf_todo.created_at}</td>
       <td>{drf_todo.updated_at}</td>
+      <td>{drf_todo.is_active}</td>
     </tr>
   )
 };

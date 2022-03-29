@@ -10,6 +10,7 @@ const TODOList = ({drf_todos}) => {
         <th>Project</th>
         <th>Created at</th>
         <th>Updated at</th>
+        <th>Is active</th>
       </tr>
       </thead>
       <tbody>
