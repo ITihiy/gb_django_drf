@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'django_filters',
+    'drf_yasg',
+    'graphene_django',
 
     'drf_users',
     'todo_app',
@@ -160,5 +162,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
 
     ],
+
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning',
     'PAGE_SIZE': 100,
+}
+
+GRAPHENE = {
+    'SCHEMA': 'gb_django_drf.schema.schema',
 }
