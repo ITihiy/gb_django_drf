@@ -15,15 +15,34 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from graphene_django.views import GraphQLView
+from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.permissions import AllowAny
 from rest_framework.routers import DefaultRouter
 
 from drf_users.views import DRFUserModelViewSet
+from todo_app.views import ProjectModelViewSet, TODOItemModelViewSet
+
+schema_view = get_schema_view(openapi.Info(
+    title='DRF Django',
+    default_version='1.0',
+    description='DRF Django',
+    contact=openapi.Contact(email='admin@mail.local'),
+    license=openapi.License(name='MIT')
+), public=True, permission_classes=(AllowAny,))
 
 router = DefaultRouter()
 router.register('drf_users', DRFUserModelViewSet)
+router.register('drf_projects', ProjectModelViewSet)
+router.register('drf_todo_items', TODOItemModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
+    path('api-get-token/', obtain_auth_token),
+    path('swagger/', schema_view.with_ui()),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
 ]

@@ -8,3 +8,6 @@ media/
 db.sqlite3
 frontend/nodemodules/
 package-lock.json
+/adjectives.txt
+/nouns.txt
+/verbs.txt
